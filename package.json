@@ -1,0 +1,33 @@
+{
+  "name": "tohsaka",
+  "version": "0.3.0",
+  "description": "multipurpose discord bot.",
+  "main": "src/Rin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/Rin.js",
+    "dev": "nodemon src/Rin.js"
+  },
+  "author": "<Discord: Xa_puppet><GitHub: Wilbert-mad>",
+  "license": "MIT",
+  "dependencies": {
+    "ascii-table": "0.0.9",
+    "chalk": "^4.1.0",
+    "discord.js": "^12.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.25",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wilbert-mad/RinBot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Wilbert-mad/RinBot/issues"
+  },
+  "homepage": "https://github.com/Wilbert-mad/RinBot#readme"
+}

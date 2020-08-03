@@ -1,0 +1,18 @@
+
+# project modules
+node_modules
+package-lock.json
+
+# configs
+configs.js
+
+# session client secrets, token, and more later...
+.env
+
+# dashbord just a app.js file
+server
+
+# others
+global/languages.js
+global/extenders.js
+src/utils/utils.js

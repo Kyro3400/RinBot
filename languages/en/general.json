@@ -1,0 +1,10 @@
+{
+  "YES": "Yes",
+  "NO": "No",
+  "ERROR": "There was a error during {{process}}",
+  "BAN_MESSAGE": "Members {{member}} has been ban.",
+  "KICK_MESSAGE": "Members {{member}} has been kicked.",
+  "MUTED_MESSAGE": "Member {{member}} has been muted.",
+  "PURGE": "Purged {{size}} messages.",
+  "TEMP-MUTE_MESSAGE": "Member {{member}} has been muted."
+}

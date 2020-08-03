@@ -1,0 +1,70 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2020": true
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 11
+    },
+    "rules": {
+        "indent": ["error", 2],
+        "quote-props": ["error", "as-needed"],
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "no-var": "warn",
+        "no-unused-vars": "error",
+        "no-empty": "warn",
+        "callback-return": "error",
+        "handle-callback-err": "error",
+        "no-mixed-requires": "error",
+        "no-new-require": "error",
+        "no-path-concat": "error",
+        "valid-jsdoc": ["warn", {
+            "requireReturn": false,
+            "requireReturnDescription": false,
+            "preferType": {
+            "String": "string",
+            "Number": "number",
+            "Boolean": "boolean",
+            "Symbol": "symbol",
+            "function": "Function",
+            "object": "Object",
+            "date": "Date",
+            "error": "Error"
+        }
+        }
+    ],
+        "array-bracket-spacing": "error",
+        "block-spacing": "error",
+        "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+        "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1, "maxBOF": 0 }],
+        "semi-spacing": "error",
+        "keyword-spacing": ["error", {
+            "overrides": {
+            "if": { "after": true },
+            "for": { "after": true },
+            "while": { "after": true },
+            "catch": { "after": true },
+            "switch": { "after": true }
+            }
+        }
+        ],
+        "arrow-body-style": "error",
+        "arrow-spacing": "error",
+        "no-duplicate-imports": "warn",
+        "no-useless-computed-key": "error",
+        "no-useless-constructor": "error",
+        "prefer-arrow-callback": "error",
+        "prefer-rest-params": "error",
+        "prefer-spread": "error",
+        "prefer-template": "error",
+        "rest-spread-spacing": "error",
+        "template-curly-spacing": "error",
+        "require-await": "error",
+        "prefer-const": "error"
+    }
+}
