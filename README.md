@@ -4,6 +4,6 @@
 
 ## About
 
-Rin is a bot insperd by the the anima charter **Tohsaka Rin** from the searis altemet blad works. 
+
+Rin is a bot inspired by the anima charter Tohsaka Rin from the series ultimate blad works. 
 and the creator may or may not have a thing for this her right now... 😊
- 
