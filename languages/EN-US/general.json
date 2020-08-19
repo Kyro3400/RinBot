@@ -1,0 +1,13 @@
+{
+  "YES": "Yes",
+  "NO": "No",
+  "ERROR": "There was a error during {{process}}",
+  "COOLDOWN": {
+    "Author": "{{member}} | Cooldown",
+    "addField": ["Command | {{CmdName}}", "Wait {{Time}} before reusing this command."]
+  },
+  "COOLDOWN_NOPREMS": "Command: {{CmdName}} Time: {{Time}}.",
+  "GuildOnly": "Guild only command",
+  "MemberPermissionsMissing": "Missing permissions {{neededPermission}}",
+  "ClientPermissionsMissing": "I'm missing permissions {{neededPermission}}"
+}

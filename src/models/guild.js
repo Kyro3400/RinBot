@@ -3,7 +3,8 @@ const { Schema, model } = require('mongoose');
 module.exports = model('guildconfigs', new Schema({
   guildID: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
   },
   prefix: {
     type: String,
@@ -49,21 +50,30 @@ module.exports = model('guildconfigs', new Schema({
   },
   adminRoles: {
     type: Array, 
-    default: [] 
+    default: [],
   },
   ignoredChannels: { 
     type: Array, 
-    default: [] 
+    default: [],
   },
   autoDeleteModCommands: { 
     type: Boolean, 
-    default: false 
+    default: false,
   },
   disabledCategories: { 
     type: Array, 
-    default: [] 
+    default: [],
   },
-  autoDeleteLinks: false,
-  autoDeleteInvites: false,
-  blackListed: false
+  autoDeleteLinks: {
+    type: Boolean,
+    default: false,
+  },
+  autoDeleteInvites: {
+    type: Boolean,
+    default: false,
+  },
+  blackListed: {
+    type: Boolean,
+    default: false,
+  }
 }));

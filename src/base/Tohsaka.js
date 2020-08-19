@@ -1,5 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 const { Client, Collection, User } = require('discord.js');
+const moment = require('moment');
+
+moment.relativeTimeThreshold('s', 60);
+moment.relativeTimeThreshold('ss', 5);
+moment.relativeTimeThreshold('m', 60);
+moment.relativeTimeThreshold('h', 60);
+moment.relativeTimeThreshold('d', 24);
+moment.relativeTimeThreshold('M', 12);
 
 class Tohsaka extends Client {
 
@@ -15,12 +23,13 @@ class Tohsaka extends Client {
     this.version = require('../../package.json').version; // bot version
     this.owners = ['Xa_puppet#2393']; // owners tag
     this.databaseCache = {}; 
-    this.databaseCache.prefixes = new Collection(); // guilds preix
-    this.databaseCache.timeOut = new Set(); // deletes guilds after 3days of not joining back (not used)
+    this.databaseCache.guilds = new Collection();
+    this.databaseCache.prefixes = new Collection(); 
+    this.databaseCache.timeOut = new Set(); 
   }
   
   /**
-   * Check if the user is owner of the Tohsaka.
+   * Check if the user is owner of the Tohsaka client.
    * @param {User} user user checked.
    * @returns {boolean}
    */

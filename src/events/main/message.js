@@ -15,6 +15,7 @@ module.exports = class MessageEvent extends BaseEvent {
   async run(client, message) {
     if (message.guild && !message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES')) return;
     if (message.author.bot) return;
+    // console.log(message.guild.modules());
 
     const data = {};
     let prefix;
@@ -26,19 +27,27 @@ module.exports = class MessageEvent extends BaseEvent {
         (await client.functions.getGuildPrefix(message.guild.id)));
       prefix = (await client.functions.getGuildPrefix(message.guild.id));
     }
+   
+    // if (message.guild) {
+    //   const guild = await client.findOrCreateGuild({ id: message.guild.id });
+    //   message.guild.data = (data.guild) = guild;
+    // }
 
-    if (message.content.match(new RegExp(`^<@!${client.user.id}>( |)(help)$`))) {
-      return message.reply(`This servers prefix is set to \`${prefix}\``);
-    }
     /**@type {String} */
     data.prefix = await client.databaseCache.prefixes.get(message.guild.id);
+
+    const prefixes = [prefix, `<@!${client.user.id}>`];
+    
+    prefix = prefixes.find(p => message.content.startsWith(p));
+    
+    if (!prefix) return;
+
+    if (message.content.indexOf(prefix) !== 0) return;
 
     const messageArray = message.content.split(new RegExp(/\s+/));
     const command = messageArray[0].toLowerCase();
     const args = messageArray.slice(1);
-
-    if (!command.startsWith(prefix)) return;
-
+    
     const cmd = client.commands.get(command.slice(prefix.length)) ||
       client.commands.get(client.aliases.get(command.slice(prefix.length)));
     if (!cmd) {
@@ -104,7 +113,7 @@ module.exports = class MessageEvent extends BaseEvent {
     try {
       if (cmd) cmd.run(client, message, args, data);
     } catch (err) {
-      client.logger.log(err, 'error');
+      client.logger.log(`${err.message || err} from: ${cmd.name}`, 'error');
     }
   }
 };

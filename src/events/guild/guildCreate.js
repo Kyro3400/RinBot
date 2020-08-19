@@ -6,7 +6,11 @@ module.exports = class NewGuildEvent extends BaseEvent {
     super('guildCreate');
   }
   async run(client, guild) {
-    // create a new guild profile ( as of now it ill not check if this profile is already made )
-    try { await guildSchema.create({ guildID: guild.id }); } catch (err) { console.log(err); }
+    // create a new guild profile
+    try {
+      const schema = await guildSchema.findOne({ guildID: guild.id });
+      if (!schema) await guildSchema.create({ guildID: guild.id });
+      return;
+    } catch (err) { console.log(err); }
   }
 };
