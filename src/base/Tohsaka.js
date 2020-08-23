@@ -11,7 +11,7 @@ moment.relativeTimeThreshold('M', 12);
 
 class Tohsaka extends Client {
 
-  constructor(options) {
+  constructor(options = {}) {
     super(options);
     this.configs = require('../../configs.js'); // config file
     this.botEmojis = require('../../global/emojis.json'); // custom emojis 

@@ -16,23 +16,23 @@ Rin is a bot insperd by the the anima charter **Tohsaka Rin** from the searis al
 
 ## TODO
 
-- [X] client class
-  - [X] commands 
-  - [X] funtions
-  - [ ] languages
-- [ ] move commands to class's
-- [ ] client dashboard backend
- - [ ] login | logout
-- [ ] client dashboard view
- - [ ] create a vue app.
-  - [ ] home page {router='/'}
-  - [ ] about page {router='/about/'}
-  - [ ] terms page {router='/terms/'}
-  - [ ] profile page {router='/profile/'}
-  - [ ] dashboard page {router='/manager/:id/'}
-    - [ ] moderation (dashboard page) {router='/manager/:id/moderation/'}
-    - [ ] welcome (dashboard page) {router='/manager/:id/welcome/'}
-    - [ ] auto mod (dashboard page) {router='/manager/:id/automod/'}
+* [X] client class
+  * [X] commands 
+  * [X] funtions
+  * [ ] languages
+* [ ] move commands to class's
+* [ ] client dashboard backend
+ * [ ] login | logout
+* [ ] client dashboard view
+ * [ ] create a vue app.
+  * [ ] home page {router='/'}
+  * [ ] about page {router='/about/'}
+  * [ ] terms page {router='/terms/'}
+  * [ ] profile page {router='/profile/'}
+  * [ ] dashboard page {router='/manager/:id/'}
+    * [ ] moderation (dashboard page) {router='/manager/:id/moderation/'}
+    * [ ] welcome (dashboard page) {router='/manager/:id/welcome/'}
+    * [ ] auto mod (dashboard page) {router='/manager/:id/automod/'}
 
 ## Contributing
 

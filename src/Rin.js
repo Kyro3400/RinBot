@@ -1,6 +1,5 @@
 require('dotenv').config();
 require('../global/extenders.js');
-require('./base/structer-extenders/guild.js');
 const Rin = require('./base/Tohsaka.js');
 const { registerCommands, registerEvents } = require('./utils/register.js');
 const client = new Rin({ partials: ['MESSAGE', 'REACTION'] });
