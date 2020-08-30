@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const { Client, Collection, User } = require('discord.js');
 const moment = require('moment');
+const Utils = require('../utils/Utils.js');
 
 moment.relativeTimeThreshold('s', 60);
 moment.relativeTimeThreshold('ss', 5);
@@ -20,6 +21,8 @@ class Tohsaka extends Client {
     this.logger = require('../../global/logger.js'); // logger
     this.functions = require('../../global/functions.js'); // funtions for database
     this.dashboard = require('../../server/app.js'); // dashboard ( not used )
+    this.guildsSchema = require('../models/guild.js');
+    this.utils = new Utils(this);
     this.version = require('../../package.json').version; // bot version
     this.owners = ['Xa_puppet#2393']; // owners tag
     this.databaseCache = {}; 
@@ -38,6 +41,10 @@ class Tohsaka extends Client {
     user = this.users.resolve(user);
     if (!this.configs.owners.includes(user.id)) return false;
     return true;
+  }
+
+  findOrCreateGuild({ id: guildID }) {
+
   }
 }
 

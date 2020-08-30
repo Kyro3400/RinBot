@@ -1,12 +1,14 @@
 require('dotenv').config();
-require('../global/extenders.js');
+require('./base/guild.js');
+require('./base/message.js');
 const Rin = require('./base/Tohsaka.js');
-const { registerCommands, registerEvents } = require('./utils/register.js');
+const { registerEvents } = require('./utils/register.js');
 const client = new Rin({ partials: ['MESSAGE', 'REACTION'] });
 
 // load events and commands.
-(async() => {
-  await registerCommands(client);
+(async () => {
+  // await registerCommands(client);
+  client.utils.loadCommands();
   await registerEvents(client, '../events');
   const languages = require('../global/languages.js');
   client.translations = languages;

@@ -12,5 +12,3 @@ configs.js
 # others
 global/languages.js
 global/extenders.js
-src/utils/utils.js
-docs

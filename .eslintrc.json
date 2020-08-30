@@ -53,6 +53,8 @@
             }
         }
         ],
+		"comma-spacing": "error",
+		"comma-style": "error",
         "arrow-body-style": "error",
         "arrow-spacing": "error",
         "no-duplicate-imports": "warn",
@@ -65,6 +67,17 @@
         "rest-spread-spacing": "error",
         "template-curly-spacing": "error",
         "require-await": "error",
-        "prefer-const": "error"
+        "prefer-const": "error",
+        "no-empty-function": "error",
+        "space-before-blocks": "error",
+		"space-before-function-paren": ["error", {
+			"anonymous": "never",
+			"named": "never",
+			"asyncArrow": "always"
+		}],
+		"space-in-parens": "error",
+		"space-infix-ops": "error",
+		"space-unary-ops": "error",
+		"spaced-comment": "error"
     }
 }

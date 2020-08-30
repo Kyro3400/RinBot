@@ -1,13 +1,17 @@
 const { MessageEmbed } = require('discord.js');
+const command = require('../../utils/structures/BaseCommand.js');
 
-module.exports = {
-  name: 'help',
-  category: 'general',
-  usage: 'help [command]',
-  aliases: ['h'],
-  clientPermissions: ['EMBED_LINKS'],
-  description: 'Show a help menu',
-  run: async (client, message, [command], data) => {
+module.exports = class SeeSetting extends command {
+  constructor(client) {
+    super(client, 'help', {
+      category: 'general',
+      usage: 'help [command]',
+      aliases: ['h'],
+      description: 'Show a help menu',
+    });
+  }
+
+  async run(client, message, [command]) {
     const embed = new MessageEmbed();
     if (command) {
       const cmd = client.commands.get(command.toLowerCase()) || 

@@ -15,7 +15,6 @@ module.exports = class MessageEvent extends BaseEvent {
   async run(client, message) {
     if (message.guild && !message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES')) return;
     if (message.author.bot) return;
-    // console.log(message.guild.modules());
 
     const data = {};
     let prefix;
@@ -33,7 +32,7 @@ module.exports = class MessageEvent extends BaseEvent {
     //   message.guild.data = (data.guild) = guild;
     // }
 
-    /**@type {String} */
+    /** @type {String} */
     data.prefix = await client.databaseCache.prefixes.get(message.guild.id);
 
     const prefixes = [prefix, `<@!${client.user.id}>`];
@@ -66,9 +65,8 @@ module.exports = class MessageEvent extends BaseEvent {
             neededPermission.push(perm);
           }
         });
-        if (neededPermission.length > 0) {
+        if (neededPermission.length > 0)
           return message.channel.send(`Missing permissions ${neededPermission.map((p) => p).join(', ')}`);
-        }
       }
       if (cmd.memberPermissions === undefined) cmd.memberPermissions = [];
       if (cmd.memberPermissions === []) cmd.memberPermissions.push('none');
@@ -78,9 +76,8 @@ module.exports = class MessageEvent extends BaseEvent {
             neededPermission.push(perm);
           }
         });
-        if (neededPermission.length > 0){
+        if (neededPermission.length > 0) 
           return message.channel.send(`Missing permissions ${neededPermission.map((p) => p).join(', ')}`);
-        }
       }
     }
     // testing v
