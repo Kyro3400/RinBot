@@ -7,8 +7,7 @@ const client = new Rin({ partials: ['MESSAGE', 'REACTION'] });
 
 // load events and commands.
 (async () => {
-  // await registerCommands(client);
-  client.utils.loadCommands();
+  await client.utils.loadCommands();
   await registerEvents(client, '../events');
   const languages = require('../global/languages.js');
   client.translations = languages;
