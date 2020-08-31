@@ -5,7 +5,7 @@ module.exports = class BaseEvent {
   }
 
   // eslint-disable-next-line no-unused-vars
-  run(client, message) {
+  run(client) {
     throw new Error(`Error: '${this.name}' has no run function!`);
   }
 };

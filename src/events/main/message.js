@@ -27,10 +27,10 @@ module.exports = class MessageEvent extends BaseEvent {
       prefix = (await client.functions.getGuildPrefix(message.guild.id));
     }
    
-    // if (message.guild) {
-    //   const guild = await client.findOrCreateGuild({ id: message.guild.id });
-    //   message.guild.data = (data.guild) = guild;
-    // }
+    if (message.guild) {
+      const guild = await client.findOrCreateGuild({ guildID: message.guild.id });
+      message.guild.data = (data.guild) = guild;
+    }
 
     /** @type {String} */
     data.prefix = await client.databaseCache.prefixes.get(message.guild.id);

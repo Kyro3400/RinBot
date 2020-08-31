@@ -1,6 +1,6 @@
 const command = require('../../utils/structures/BaseCommand.js');
 
-module.exports = class SeeSetting extends command {
+module.exports = class Ping extends command {
   constructor(client) {
     super(client, 'ping', {
       aliases: [],
@@ -11,7 +11,7 @@ module.exports = class SeeSetting extends command {
     });
   }
 
-  async run(client, message,) {
+  async run(client, message) {
     const startTime = Date.now();
     await message.channel.send('Pinging...').then(async (m) => {
       const endTime = Date.now();

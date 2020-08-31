@@ -1,5 +1,4 @@
 const BaseEvent = require('../../utils/structures/BaseEvent');
-const guildSchema = require('../../models/guild.js');
 
 module.exports = class NewGuildEvent extends BaseEvent {
   constructor() {
@@ -8,9 +7,8 @@ module.exports = class NewGuildEvent extends BaseEvent {
   async run(client, guild) {
     // create a new guild profile
     try {
-      const schema = await guildSchema.findOne({ guildID: guild.id });
-      if (!schema) await guildSchema.create({ guildID: guild.id });
-      return;
+      const schema = await client.findOrCreateGuild({ guildID: guild.id });
+      return schema;
     } catch (err) { console.log(err); }
   }
 };

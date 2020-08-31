@@ -6,14 +6,6 @@
 
 RinT is multipurpose discord bot.
 
-## Story of RinT
-
-Rin is a bot insperd by the the anima charter **Tohsaka Rin** from the searis altemet blad works.
- 
-## Story of RinT Dashboard
-
-`null`
-
 ## TODO
 
 * [X] client class
@@ -41,6 +33,6 @@ Rin is a bot insperd by the the anima charter **Tohsaka Rin** from the searis al
 
 Please use ESLint for linting since this project uses this code style and it makes reviewing and testing faster and easier. 
 
-##
+---
 
 [Support server](https://discord.gg/E7KAuWG)

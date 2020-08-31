@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const command = require('../../utils/structures/BaseCommand.js');
 
-module.exports = class SeeSetting extends command {
+module.exports = class Help extends command {
   constructor(client) {
     super(client, 'help', {
       category: 'general',
@@ -23,7 +23,7 @@ module.exports = class SeeSetting extends command {
           `**Command name**: ${cmd.name}`,
           `**Aliases**: ${cmd.aliases.length ? cmd.aliases.map(a => `\`${a}\``).join(' ') : 'No Aliases'}`,
           `**Description**: ${cmd.description.length ? cmd.description : 'No description'}`,
-          `**Usage**: ${data.prefix}${cmd.usage.length ? cmd.usage : 'No Usage'}`
+          `**Usage**: ${message.guild.data.prefix}${cmd.usage.length ? cmd.usage : 'No Usage'}`
         ])
         .setFooter('Syntax: <> = required, [] = optional', message.author.displayAvatarURL({ dynamic: true }))
         .setColor(client.configs.colors.good);

@@ -43,8 +43,21 @@ class Tohsaka extends Client {
     return true;
   }
 
-  findOrCreateGuild({ id: guildID }) {
-
+  async findOrCreateGuild({ guildID }, isLean) {
+    if (this.databaseCache.guilds.has(guildID)) {
+      return isLean ? this.databaseCache.guilds.get(guildID).toJSON() : this.databaseCache.guilds.get(guildID);
+    } else {
+      let guildData = (isLean ? await this.guildsSchema.findOne({ guildID }).populate('members').lean() : await this.guildsSchema.findOne({ guildID }).populate('members'));
+      if (guildData) {
+        if (!isLean) this.databaseCache.guilds.set(guildID, guildData);
+        return guildData;
+      } else {
+        guildData = new this.guildsSchema({ guildID });
+        await guildData.save();
+        this.databaseCache.guilds.set(guildID, guildData);
+        return isLean ? guildData.toJSON() : guildData;
+      }
+    }
   }
 }
 
