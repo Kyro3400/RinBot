@@ -7,7 +7,7 @@ module.exports = class Info extends command {
       category: 'info', 
       usage: 'info',
       aliases: ['about', 'information'],
-      description: 'get info on the bot and its devs'
+      description: 'Get info on the RinT'
     });
   }
 
@@ -28,16 +28,3 @@ module.exports = class Info extends command {
     return (await message.channel.send(embed));
   }
 };
-
-
-// module.exports = {
-//   name: 'info',
-//   category: 'info', 
-//   usage: 'info',
-//   aliases: ['information', 'about'],
-//   clientPermissions: ['EMBED_LINKS'],
-//   description: 'get info on the bot and its devs',
-//   run: async (client, message) => {
-//    
-//   }
-// };

@@ -1,22 +1,18 @@
 # Contributing
 
-If you are interested into contributing to this project, feel free to fork this repository and to submit a pull request with the changes you made. 
-In future, a special code style will be enforced in all JavaScript files.
+The issue tracker is only for bug reports and enhancement suggestions. If you have a question, 
+please ask it in the [Discord server](https://discord.com/invite/E7KAuWG) instead of opening an issue – you will get redirected there anyway.
 
-Please use ESLint for linting since this project uses this code style and it makes reviewing and testing faster and easier. 
-You can lint with `npm run lint`
+If you wish to contribute to the RinBot's codebase or documentation, feel free to fork the repository and submit a pull request. 
+We use ESLint to enforce a consistent coding style, so having that set up in you editor of choice is a great boon to your development process.
 
-## Checklist and Contributing guidelines
+# Setup
 
-1.) Fork & git clone the repository.
-```
-  $ git clone https://github.com/Wilbert-mad/RinBot.git 
-```
-2.) Make sure you are on the master branch in your fork.
+To get ready to work on the codebase, please do the following:
 
-# Setup the project
-
-3.) Install all modules
-```
-  npm i
-```
+1. Fork & clone the repository, and make sure you're on the master branch
+2. Run `npm install`
+4. Rename `.env.exampal` to `.env` and fill it in
+4. Code Away to your heart's content!
+5. Run `npm run lint` to run ESLint and ensure any JSDoc changes are valid
+6. Submit a pull request (Make sure you follow the conventional commit format)

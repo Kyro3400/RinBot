@@ -16,7 +16,7 @@ module.exports = class pokemon extends command {
     if (!pokemonName) return;
     const pokemon = await (await axios.default.get(`https://some-random-api.ml/pokedex?pokemon=${pokemonName}`)).data;
     if (!pokemon) return await message.channel.send('Pokemon not found!');
-    console.log(pokemon);
+    
     const embed = new MessageEmbed()
       .setAuthor(pokemon.name.split(' ').map(str => `${str.slice(0, 1).toUpperCase() + str.slice(1)}`).join(' '))
       .setDescription(pokemon.description)
