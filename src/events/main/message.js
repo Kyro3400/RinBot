@@ -50,7 +50,9 @@ module.exports = class MessageEvent extends BaseEvent {
     const cmd = client.commands.get(command.slice(prefix.length)) ||
       client.commands.get(client.aliases.get(command.slice(prefix.length)));
     if (!cmd) {
-      if (message.guild) { return; } else { return; }
+      if (message.guild) { return; } else { 
+        return;
+      }
     }
 
     if (cmd === undefined) return;
@@ -108,9 +110,9 @@ module.exports = class MessageEvent extends BaseEvent {
     setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
     try {
-      if (cmd) cmd.run(client, message, args, data);
+      if (cmd) cmd.run(client, message, args);
     } catch (err) {
-      client.logger.log(`${err.message || err} from: ${cmd.name}`, 'error');
+      client.logger.log(`${err.message || err}`, 'error');
     }
   }
 };

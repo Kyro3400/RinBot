@@ -20,7 +20,7 @@ class Tohsaka extends Client {
     this.aliases = new Collection(); // aliases
     this.logger = require('../../global/logger.js'); // logger
     this.functions = require('../../global/functions.js'); // funtions for database
-    this.dashboard = require('../../server/app.js'); // dashboard ( not used )
+    // this.dashboard = require('../../server/app.js'); // dashboard ( not used )
     this.guildsSchema = require('../models/guild.js');
     this.utils = new Utils(this);
     this.version = require('../../package.json').version; // bot version

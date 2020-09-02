@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const configs = require('../../configs.js');
 // might change
 module.exports = model('guildconfigs', new Schema({
   guildID: {
@@ -12,7 +13,7 @@ module.exports = model('guildconfigs', new Schema({
   }, 
   language: {
     type: String,
-    default: 'en'
+    default: configs.language.find((lan) => lan.default).name
   }, 
   modules: { type: Object,
     default: {
