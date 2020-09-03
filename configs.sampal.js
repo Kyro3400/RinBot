@@ -16,7 +16,22 @@ module.exports = {
       type: 'PLAYING'
     },
   ],
-  defaultLanguage: 'en',
+  language: [
+    {
+      name: 'en-US',
+      nativeName: 'English',
+      moment: 'en',
+      defaultMomentFormat: 'MMMM Do YYYY',
+      default: true,
+      aliases: [
+        'English',
+        'en',
+        'en-us',
+        'en_us',
+        'en_US'
+      ]
+    }
+  ],
 	dashboard: {
 		enabled: false
   },
