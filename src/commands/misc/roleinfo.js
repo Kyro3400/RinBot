@@ -15,13 +15,7 @@ module.exports = class RoleInfo extends command {
     message.guild.roles.cache.find(r => r.id === args[0]) || 
     message.guild.roles.cache.find(r => r.name === args.join(' '));
     if (!args[0]) return message.channel.send('You need to provide a role!');
-    if (role) {        
-      let ishoist = role.hoist;
-      if (ishoist === true) ishoist = 'Yes';
-      if (ishoist === false) ishoist = 'No';
-      let ismentionable = role.mentionable;
-      if (ismentionable === true) ismentionable = 'Yes';
-      if (ismentionable === false) ismentionable = 'No';
+    if (role) {
       const color = role.hexColor;
       const roleinfo = new MessageEmbed()
         .setColor(role.color)
@@ -30,10 +24,10 @@ module.exports = class RoleInfo extends command {
         .addField('Color', (color != '#000000' ? color : 'None'), true)
         .addField('Mention', `\`<@&${role.id}>\``, true)
         .addField('Position', role.position, true)
-        .addField('Hoist', ishoist, true)
-        .addField('Mentionable', ismentionable, true)
+        .addField('Hoist', (role.hoist ? 'Yes' : 'No'), true)
+        .addField('Mentionable', (role.mentionable ? 'Yes' : 'No'), true)
         .setFooter('Role Created')
-        .setTimestamp(`${role.createdAt}`);
+        .setTimestamp(role.createdAt);
       return (await message.channel.send(roleinfo));
     } else {
       const notfound = new MessageEmbed()

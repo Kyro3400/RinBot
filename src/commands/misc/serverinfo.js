@@ -4,7 +4,7 @@ const command = require('../../utils/structures/BaseCommand.js');
 module.exports = class ServerInfo extends command {
   constructor(client) {
     super(client, 'serverinfo', {
-      aliases: ['guildinfo', 'guild'],
+      aliases: [],
       usage: 'serverinfo',
       category: 'misc',
       description: 'Get server information',
