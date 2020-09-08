@@ -4,7 +4,7 @@ const command = require('../../utils/structures/BaseCommand.js');
 module.exports = class Help extends command {
   constructor(client) {
     super(client, 'help', {
-      category: 'general',
+      category: 'misc',
       usage: 'help [command]',
       aliases: ['h'],
       description: 'Show a help menu',
