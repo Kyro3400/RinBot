@@ -1,5 +1,8 @@
 module.exports = class BaseEvent {
 
+  /**
+   * @param {string} name event name
+   */
   constructor(name) {
     this.name = name;
   }

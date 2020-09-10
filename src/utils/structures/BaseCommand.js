@@ -1,5 +1,13 @@
+// eslint-disable-next-line no-unused-vars
+const Rin = require('../../base/Tohsaka.js');
+
 module.exports = class BaseCommand {
 
+  /**
+   * @param {Rin} client client class
+   * @param {string} name command name
+   * @param {commandOptions} options command options
+   */
   constructor(client, name, options = {}) {
     this.client = client;
     this.name = options.name || name;
@@ -20,3 +28,14 @@ module.exports = class BaseCommand {
     throw new Error(`Error: '${this.name}' has no run function!`);
   }
 };
+
+/**
+ * @typedef {object} commandOptions
+ * @property {string} name
+ * @property {number} cooldown
+ * @property {string[]} aliases
+ * @property {string} description
+ * @property {string} category
+ * @property {boolean} guildOnly
+ * @property {boolean} owner
+ */
