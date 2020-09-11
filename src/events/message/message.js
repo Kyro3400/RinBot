@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-const { Message, Collection, MessageEmbed, Client } = require('discord.js');
+const { Rin, MessageRin } = require('../../types');
+const { Collection, MessageEmbed } = require('discord.js');
 const BaseEvent = require('../../structures/BaseEvent');
 const cooldowns = new Collection();
 
@@ -8,8 +9,8 @@ module.exports = class MessageEvent extends BaseEvent {
     super('message');
   }
   /**
-   * @param {Client} client -
-   * @param {Message} message -
+   * @param {Rin} client -
+   * @param {MessageRin} message -
    * @returns {any | void}
    */
   async run(client, message) {
