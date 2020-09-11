@@ -3,17 +3,18 @@ const guildconfigs = require('../src/models/guild.js');
 module.exports = {
   /**
    * @param {number} ms Time 
+   * @param {boolean} long Short hand 
    * @returns {string} 
   */
-  deraton(ms) {
+  deraton(ms, long = true) {
     const sec = Math.floor((ms / (1000) % 60)).toString();
     const min = Math.floor((ms / (1000 * 60)) % 60).toString();
     const hrs = Math.floor((ms / (1000 * 60 * 60)) % 60).toString();
     const days = Math.floor((ms / (1000 * 60 * 60 * 24)) % 60).toString();
-    if (min === '0' && hrs === '0' && days === '0') return (`${sec.padStart(2, '0')} seconds`);
-    if (hrs === '0' && days === '0') return (`${min.padStart(2, '0')} minutes, ${sec.padStart(2, '0')} seconds`);
-    if (days === '0') return (`${hrs.padStart(2, '0')} hours, ${min.padStart(2, '0')} minutes, ${sec.padStart(2, '0')} seconds`);
-    return (`${days.padStart(2, '0')} day, ${hrs.padStart(2, '0')} hours, ${min.padStart(2, '0')} minutes, ${sec.padStart(2, '0')} seconds`);
+    if (min === '0' && hrs === '0' && days === '0') return (`${sec.padStart(2, '0')}${long ? ' seconds' : 's'}`);
+    if (hrs === '0' && days === '0') return (`${min.padStart(2, '0')}${long ? ' minutes' : 'm'}, ${sec.padStart(2, '0')}${long ? ' seconds' : 's'}`);
+    if (days === '0') return (`${hrs.padStart(2, '0')}${long ? ' hours' : 'h'}, ${min.padStart(2, '0')}${long ? ' minutes' : 'm'}, ${sec.padStart(2, '0')}${long ? ' seconds' : 's'}`);
+    return (`${days.padStart(2, '0')}${long ? ' day' : 'd'}, ${hrs.padStart(2, '0')}${long ? ' hours' : 'h'}, ${min.padStart(2, '0')}${long ? ' minutes' : 'm'}, ${sec.padStart(2, '0')}${long ? ' seconds' : 's'}`);
   },
   /** 
    * @param {*} client Client class
