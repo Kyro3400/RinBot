@@ -64,7 +64,8 @@ module.exports = class MessageEvent extends BaseEvent {
       if (cmd.clientPermissions === []) cmd.clientPermissions.push('none');
       if (!cmd.clientPermissions.includes('none')) {
         cmd.clientPermissions.forEach((perm) => {
-          if (!message.channel.permissionsFor(message.guild.me).has(perm)) {
+          if (!message.channel.permissionsFor(message.guild.me).has(perm) ||
+            message.member.hasPermission(perm)) {
             neededPermission.push(perm);
           }
         });

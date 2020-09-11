@@ -18,9 +18,8 @@ module.exports = class BaseCommand {
     this.category = options.category || 'misc';
     this.guildOnly = options.guildOnly || true;
     this.owner = options.owner || false;
-    this.permissions = options.permissions = {};
-    this.clientPermissions = options.permissions.client || [];
-    this.memberPermissions = options.permissions.member || [];
+    this.clientPermissions = options.clientPermissions || [];
+    this.memberPermissions = options.memberPermissions || [];
   }
 
   // eslint-disable-next-line no-unused-vars
@@ -36,6 +35,9 @@ module.exports = class BaseCommand {
  * @property {string[]} aliases Commands aliases
  * @property {string} description Commands description
  * @property {string} category Commands category
+ * @property {string} usage Commands usage
  * @property {boolean} guildOnly Guild Only Command
  * @property {boolean} owner Owner Only Command
+ * @property {import('discord.js').PermissionResolvable[]} clientPermissions Rin permission needed
+ * @property {import('discord.js').PermissionResolvable[]} memberPermissions Member permission needed
  */
