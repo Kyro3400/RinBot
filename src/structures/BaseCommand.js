@@ -31,11 +31,11 @@ module.exports = class BaseCommand {
 
 /**
  * @typedef {object} commandOptions
- * @property {string} name
- * @property {number} cooldown
- * @property {string[]} aliases
- * @property {string} description
- * @property {string} category
- * @property {boolean} guildOnly
- * @property {boolean} owner
+ * @property {string} name Commands name
+ * @property {number} cooldown Commands cooldown in secs
+ * @property {string[]} aliases Commands aliases
+ * @property {string} description Commands description
+ * @property {string} category Commands category
+ * @property {boolean} guildOnly Guild Only Command
+ * @property {boolean} owner Owner Only Command
  */
