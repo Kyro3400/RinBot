@@ -12,7 +12,7 @@ module.exports = Structures.extend('Message', (Message) => {
     send(key, args, options = {}) {
       let string = this.translate(key, args);
       if (options.prefixEmoji) {
-        string = `${this.client.customEmojis[options.prefixEmoji]} | ${string}`;
+        string = `${this.client.botEmojis[options.emoji]} | ${string}`;
       }
       if (options.edit) {
         return this.edit(string);
