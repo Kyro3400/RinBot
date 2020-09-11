@@ -1,7 +1,7 @@
 require('dotenv').config();
-require('./base/guild.js');
-require('./base/message.js');
-const Rin = require('./base/Tohsaka.js');
+require('./structures/guild.js');
+require('./structures/message.js');
+const Rin = require('./structures/Tohsaka.js');
 const { registerEvents } = require('./utils/register.js');
 const client = new Rin({ partials: ['MESSAGE', 'REACTION'] });
 

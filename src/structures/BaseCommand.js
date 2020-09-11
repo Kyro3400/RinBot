@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const Rin = require('../../base/Tohsaka.js');
+const Rin = require('./Tohsaka.js');
 
 module.exports = class BaseCommand {
 
