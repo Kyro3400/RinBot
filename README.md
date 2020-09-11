@@ -6,6 +6,22 @@
 
 RinT is multipurpose discord bot.
 
+# command
+
+* Fun
+  - 8ball
+  - pokemon
+* info
+  - info
+* misc
+ - avatar
+ - help
+ - ping
+ - roleinfo
+ - serverinfo
+ - userinfo
+ - whois
+
 ## TODO
 
 * [X] client class
@@ -19,7 +35,7 @@ RinT is multipurpose discord bot.
 * [ ] client dashboard backend
   * [ ] login | logout
 * [ ] client dashboard view
-  * [ ] create a vue app.
+  * [ ] create a vue or react app.
     * [ ] home page {router='/'}
     * [ ] about page {router='/about/'}
     * [ ] terms page {router='/terms/'}
