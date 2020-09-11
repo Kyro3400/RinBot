@@ -15,10 +15,14 @@ module.exports = {
     if (days === '0') return (`${hrs.padStart(2, '0')} hours, ${min.padStart(2, '0')} minutes, ${sec.padStart(2, '0')} seconds`);
     return (`${days.padStart(2, '0')} day, ${hrs.padStart(2, '0')} hours, ${min.padStart(2, '0')} minutes, ${sec.padStart(2, '0')} seconds`);
   },
-  /** @param {string} guildID guild id */
-  async getGuildPrefix(guildID) {
+  /** 
+   * @param {*} client Client class
+   * @param {string} guildID Guild id 
+   */
+  async getGuildPrefix(client, guildID) {
     try {
-      const prefix = await (await guildconfigs.findOne({ guildID })).get('prefix');
+      const data = await client.findOrCreateGuild({ guildID });
+      const prefix = await data.get('prefix');
       if (typeof prefix === 'string') return prefix;
       return null;
     } catch (err) {

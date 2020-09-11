@@ -23,9 +23,9 @@ module.exports = class MessageEvent extends BaseEvent {
     if (client.databaseCache.prefixes.has(message.guild.id)) {
       prefix = await client.databaseCache.prefixes.get(message.guild.id);
     } else {
-      await client.databaseCache.prefixes.set(message.guild.id, 
-        (await client.functions.getGuildPrefix(message.guild.id)));
-      prefix = (await client.functions.getGuildPrefix(message.guild.id));
+      const status = await client.functions.getGuildPrefix(client, message.guild.id);
+      await client.databaseCache.prefixes.set(message.guild.id, status);
+      prefix = status;
     }
    
     if (message.guild) {
