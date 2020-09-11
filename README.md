@@ -14,13 +14,13 @@ RinT is multipurpose discord bot.
 * info
   - info
 * misc
- - avatar
- - help
- - ping
- - roleinfo
- - serverinfo
- - userinfo
- - whois
+  - avatar
+  - help
+  - ping
+  - roleinfo
+  - serverinfo
+  - userinfo
+  - whois
 
 ## TODO
 
