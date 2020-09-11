@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const axios = require('axios');
-const command = require('../../utils/structures/BaseCommand.js');
+const command = require('../../structures/BaseCommand.js');
 
 module.exports = class pokemon extends command {
   constructor(client) {
