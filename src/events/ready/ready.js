@@ -1,5 +1,5 @@
 require('dotenv').config();
-const BaseEvent = require('../../utils/structures/BaseEvent');
+const BaseEvent = require('../../structures/BaseEvent');
 const status = require('../../../configs').status;
 const mongoose = require('mongoose');
 let i = 0;

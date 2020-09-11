@@ -1,4 +1,4 @@
-const BaseEvent = require('./structures/BaseEvent');
+const BaseEvent = require('../structures/BaseEvent');
 const fs = require('fs').promises;
 const path = require('path');
 

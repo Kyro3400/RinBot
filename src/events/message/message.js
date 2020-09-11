@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 const { Message, Collection, MessageEmbed, Client } = require('discord.js');
-const BaseEvent = require('../../utils/structures/BaseEvent');
+const BaseEvent = require('../../structures/BaseEvent');
 const cooldowns = new Collection();
 
 module.exports = class MessageEvent extends BaseEvent {

@@ -1,4 +1,4 @@
-const BaseEvent = require('../../utils/structures/BaseEvent');
+const BaseEvent = require('../../structures/BaseEvent');
 
 module.exports = class MemberLeaveEvent extends BaseEvent {
   constructor() {

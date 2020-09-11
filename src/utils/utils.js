@@ -1,7 +1,7 @@
 const path = require('path');
 const { promisify } = require('util');
 const glob = promisify(require('glob'));
-const BaseCommand = require('./structures/BaseCommand.js');
+const BaseCommand = require('../structures/BaseCommand.js');
 const ascii = require('ascii-table');
 const table = new ascii().setHeading('Command', 'status');
 
