@@ -7,6 +7,8 @@ module.exports = class RoleInfo extends command {
       usage: 'roleinfo <role>',
       category: 'misc',
       description: 'Get info on a role',
+      clientPermissions: ['EMBED_LINKS'],
+      guildOnly: true,
     });
   }
 

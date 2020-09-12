@@ -8,6 +8,8 @@ module.exports = class ServerInfo extends command {
       usage: 'serverinfo',
       category: 'misc',
       description: 'Get server information',
+      clientPermissions: ['EMBED_LINKS'],
+      guildOnly: true,
     });
   }
 

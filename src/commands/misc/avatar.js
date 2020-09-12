@@ -8,6 +8,8 @@ module.exports = class Avatar extends command {
       usage: 'avatar <user>',
       category: 'misc',
       description: 'Get a user picture',
+      clientPermissions: ['EMBED_LINKS'],
+      guildOnly: true,
     });
   }
 

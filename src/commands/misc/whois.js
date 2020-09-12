@@ -7,6 +7,8 @@ module.exports = class Whois extends command {
       category: 'misc',
       usage: 'whois [member]',
       description: 'Gives you info about a memeber',
+      guildOnly: true,
+      clientPermissions: ['EMBED_LINKS']
     });
   }
   

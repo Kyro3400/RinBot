@@ -8,6 +8,8 @@ module.exports = class Help extends command {
       usage: 'help [command]',
       aliases: ['h'],
       description: 'Show a help menu',
+      clientPermissions: ['EMBED_LINKS'],
+      guildOnly: false,
     });
   }
 

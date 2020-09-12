@@ -3,7 +3,11 @@ const command = require('../../structures/BaseCommand.js');
 
 module.exports = class EightBall extends command {
   constructor(client) {
-    super(client, '8ball');
+    super(client, '8ball', {
+      category: 'fun',
+      description: 'Asks the 8 Ball a question',
+      usage: '8ball <question>',
+    });
   }
 
   async run(client, message, args) {

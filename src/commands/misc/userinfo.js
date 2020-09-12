@@ -7,6 +7,8 @@ module.exports = class UserInfo extends command {
       category: 'misc',
       usage: 'Userinfo',
       description: 'get info on yourself',
+      clientPermissions: ['EMBED_LINKS'],
+      guildOnly: true,
     });
   }
 

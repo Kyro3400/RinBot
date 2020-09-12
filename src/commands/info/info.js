@@ -7,7 +7,9 @@ module.exports = class Info extends command {
       category: 'info', 
       usage: 'info',
       aliases: ['about', 'information'],
-      description: 'Get info on the RinT'
+      description: 'Get info on the RinT',
+      clientPermissions: ['EMBED_LINKS'],
+      guildOnly: false,
     });
   }
 
