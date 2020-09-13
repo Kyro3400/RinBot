@@ -30,14 +30,14 @@ module.exports = class BaseCommand {
 
 /**
  * @typedef {object} commandOptions
- * @property {string} name Commands name
- * @property {number} cooldown Commands cooldown in secs
+ * @property {string} [name] Commands name
+ * @property {number} [cooldown] Commands cooldown in secs
  * @property {string[]} aliases Commands aliases
  * @property {string} description Commands description
  * @property {string} category Commands category
  * @property {string} usage Commands usage
- * @property {boolean} guildOnly Guild Only Command
- * @property {boolean} owner Owner Only Command
+ * @property {boolean} [guildOnly] Guild Only Command
+ * @property {boolean} [owner] Owner Only Command
  * @property {import('discord.js').PermissionResolvable[]} clientPermissions Rin permission needed
  * @property {import('discord.js').PermissionResolvable[]} memberPermissions Member permission needed
  */
