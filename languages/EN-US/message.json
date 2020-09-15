@@ -1,0 +1,9 @@
+{
+  "CooldownAuthor": "{{member}} | Cooldown",
+  "CooldownAddFieldOne": "Command | {{CmdName}}", 
+  "CooldownAddFieldtwo": "Wait for {{Time}} before reusing this command.",
+  "COOLDOWN_NOPREMS": "Command: {{CmdName}} Time: {{Time}}.",
+  "GuildOnly": "Guild only command.",
+  "MemberPermissionsMissing": "You don't have permission for this command.",
+  "ClientPermissionsMissing": "I'm missing permissions {{neededPermission}}."
+}

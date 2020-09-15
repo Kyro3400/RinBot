@@ -1,0 +1,9 @@
+{
+  "CooldownAuthor": "{{member}} | Enfriarse",
+  "CooldownAddFieldOne": "Comando | {{CmdName}}", 
+  "CooldownAddFieldtwo": "Espere {{Time}} antes de reutilizar este comando.",
+  "COOLDOWN_NOPREMS": "Comando: {{CmdName}} Tiempo: {{Time}}.",
+  "GuildOnly": "Comando solo para servidores.",
+  "MemberPermissionsMissing": "No tienes permiso para este comando.",
+  "ClientPermissionsMissing": "Me faltan los permisos {{neededPermission}}."
+}

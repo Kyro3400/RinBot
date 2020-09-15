@@ -1,12 +1,5 @@
 {
   "YES": "Yes",
   "NO": "No",
-  "ERROR": "There was a error during {{process}}",
-  "CooldownAuthor": "{{member}} | Cooldown",
-  "CooldownAddFieldOne": "Command | {{CmdName}}", 
-  "CooldownAddFieldtwo": "Wait {{Time}} before reusing this command.",
-  "COOLDOWN_NOPREMS": "Command: {{CmdName}} Time: {{Time}}.",
-  "GuildOnly": "Guild only command",
-  "MemberPermissionsMissing": "You dont have permissions for this command.",
-  "ClientPermissionsMissing": "I'm missing permissions {{neededPermission}}."
+  "ERROR": "There was an error during {{process}}"
 }
