@@ -60,36 +60,29 @@ module.exports = class MessageEvent extends BaseEvent {
 
     if (message.guild) {
       const neededPermission = [];
-      if (cmd.clientPermissions === undefined) cmd.clientPermissions = [];
-      if (cmd.clientPermissions === []) cmd.clientPermissions.push('none');
-      if (!cmd.clientPermissions.includes('none')) {
-        cmd.clientPermissions.forEach((perm) => {
-          if (!message.channel.permissionsFor(message.guild.me).has(perm) ||
-            message.member.hasPermission(perm)) {
-            neededPermission.push(perm);
-          }
-        });
-        if (neededPermission.length > 0)
-          return message.channel.send(`Missing permissions ${neededPermission.map((p) => p).join(', ')}`);
-      }
-      if (cmd.memberPermissions === undefined) cmd.memberPermissions = [];
-      if (cmd.memberPermissions === []) cmd.memberPermissions.push('none');
-      if (!cmd.memberPermissions.includes('none')) {
-        cmd.memberPermissions.forEach((perm) => {
-          if (!message.channel.permissionsFor(message.member).has(perm)) {
-            neededPermission.push(perm);
-          }
-        });
-        if (neededPermission.length > 0) 
-          return message.channel.send(`Missing permissions ${neededPermission.map((p) => p).join(', ')}`);
-      }
+      cmd.clientPermissions.forEach((perm) => {
+        if (!message.channel.permissionsFor(message.guild.me).has(perm) ||
+          !message.member.hasPermission(perm)) {
+          neededPermission.push(perm);
+        }
+      });
+      if (neededPermission.length > 0)
+        return message.channel.send(`Missing permissions ${neededPermission.map((p) => p).join(', ')}`);
+      cmd.memberPermissions.forEach((perm) => {
+        if (!message.channel.permissionsFor(message.member).has(perm) ||
+          !message.member.hasPermission(perm)) {
+          neededPermission.push(perm);
+        }
+      });
+      if (neededPermission.length > 0) 
+        return message.channel.send(`Missing permissions ${neededPermission.map((p) => p).join(', ')}`);
     }
     // testing v
     if (cmd.owner === undefined) cmd.owner === false;
     if (cmd.owner === true && !client.isOwner(message.author)) return;
     // testing ^
 
-    if (cmd.guildOnly && !message.guild) return message.channels.send('Guild only command');
+    if (cmd.guildOnly && !message.guild) return message.channel.send('Guild only command');
     
     if (!cooldowns.has(cmd.name)) { cooldowns.set(cmd.name, new Collection()); }
 
