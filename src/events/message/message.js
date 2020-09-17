@@ -58,6 +58,15 @@ module.exports = class MessageEvent extends BaseEvent {
 
     if (cmd === undefined) return;
 
+    // testing v
+    if (cmd.owner === undefined) cmd.owner === false;
+    if (cmd.owner === true && !client.isOwner(message.author)) return;
+    // testing ^
+
+    if (!cooldowns.has(cmd.name)) { cooldowns.set(cmd.name, new Collection()); }
+
+    if (cmd.guildOnly && !message.guild) return message.send('message:GUILDONLY');
+
     if (message.guild) {
       const neededPermission = [];
       cmd.clientPermissions.forEach((perm) => {
@@ -67,7 +76,10 @@ module.exports = class MessageEvent extends BaseEvent {
         }
       });
       if (neededPermission.length > 0)
-        return message.channel.send(`Missing permissions ${neededPermission.map((p) => p).join(', ')}`);
+        return message.send('message:CLIENT_PERMISSIONSMISSING', {
+          neededPermission: neededPermission.map((p) => p).join(', '),
+        });
+        // return message.channel.send(`Missing permissions ${}`);
       cmd.memberPermissions.forEach((perm) => {
         if (!message.channel.permissionsFor(message.member).has(perm) ||
           !message.member.hasPermission(perm)) {
@@ -75,16 +87,8 @@ module.exports = class MessageEvent extends BaseEvent {
         }
       });
       if (neededPermission.length > 0) 
-        return message.channel.send(`Missing permissions ${neededPermission.map((p) => p).join(', ')}`);
+        return message.send('message:MEMBER_PERMISSIONSMISSING');
     }
-    // testing v
-    if (cmd.owner === undefined) cmd.owner === false;
-    if (cmd.owner === true && !client.isOwner(message.author)) return;
-    // testing ^
-
-    if (cmd.guildOnly && !message.guild) return message.channel.send('Guild only command');
-    
-    if (!cooldowns.has(cmd.name)) { cooldowns.set(cmd.name, new Collection()); }
 
     const now = Date.now();
     const timestamps = cooldowns.get(cmd.name);
@@ -94,10 +98,11 @@ module.exports = class MessageEvent extends BaseEvent {
       if (now < expirationTime) {
         const timeLeft = (expirationTime - now);
         const coolDownsEmbed = new MessageEmbed()
-          .setAuthor(`${message.author.tag} | Cooldown`, message.author.displayAvatarURL())
-          .addField(`Command | ${cmd.name.toLowerCase()}`, `Wait ${client.functions.deraton(timeLeft)} before reusing this command.`);
+          .setAuthor(message.translate('message:COOLDOWNAUTHOR', { member: message.author.tag }), message.author.displayAvatarURL())
+          .addField(message.translate('message:COOLDOWNADDFIELD_ONE', { CmdName: cmd.name.toLowerCase() }),
+            message.translate('message:COOLDOWNADDFIELD_TWO', { Time: client.functions.deraton(timeLeft) }));
         if (message.channel.permissionsFor(message.guild.me).has('EMBED_LINKS')) return message.channel.send(coolDownsEmbed);
-        else return message.channel.send(`Command: ${cmd.name.toLowerCase()} Time: ${client.functions.deraton(timeLeft)}.`);
+        else return message.send('message:COOLDOWN_NOPREMS', { CmdName: cmd.name.toLowerCase(), Time: client.functions.deraton(timeLeft) });
       }
     }
 

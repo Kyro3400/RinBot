@@ -1,9 +1,9 @@
 {
-  "CooldownAuthor": "{{member}} | Cooldown",
-  "CooldownAddFieldOne": "Command | {{CmdName}}", 
-  "CooldownAddFieldtwo": "Wait for {{Time}} before reusing this command.",
+  "COOLDOWNAUTHOR": "{{member}} | Cooldown",
+  "COOLDOWNADDFIELD_ONE": "Command | {{CmdName}}", 
+  "COOLDOWNADDFIELD_TWO": "Wait for {{Time}} before reusing this command.",
   "COOLDOWN_NOPREMS": "Command: {{CmdName}} Time: {{Time}}.",
-  "GuildOnly": "Guild only command.",
-  "MemberPermissionsMissing": "You don't have permission for this command.",
-  "ClientPermissionsMissing": "I'm missing permissions {{neededPermission}}."
+  "GUILDONLY": "Guild only command.",
+  "MEMBER_PERMISSIONSMISSING": "You don't have permission for this command.",
+  "CLIENT_PERMISSIONSMISSING": "I'm missing permissions {{neededPermission}}."
 }
