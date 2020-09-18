@@ -6,8 +6,8 @@ module.exports = Structures.extend('Guild', (Guild) => {
     /**
      * Translate data fetch
      * @param {string} key - Path to statement
-     * @param {Object} args - Data to fill in blocks
-     * @returns {any}
+     * @param {Object} [args] - Data to fill in blocks
+     * @returns {string}
      */
     language(key, args) {
       const language = this.client.translations.get(this.data.language);

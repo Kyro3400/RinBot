@@ -79,7 +79,6 @@ module.exports = class MessageEvent extends BaseEvent {
         return message.send('message:CLIENT_PERMISSIONSMISSING', {
           neededPermission: neededPermission.map((p) => p).join(', '),
         });
-        // return message.channel.send(`Missing permissions ${}`);
       cmd.memberPermissions.forEach((perm) => {
         if (!message.channel.permissionsFor(message.member).has(perm) ||
           !message.member.hasPermission(perm)) {

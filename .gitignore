@@ -8,6 +8,3 @@ configs.js
 
 # session client secrets, token, and more later...
 .env
-
-# others
-global/languages.js

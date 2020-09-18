@@ -6,8 +6,8 @@ module.exports = Structures.extend('Message', (Message) => {
     /**
      * Translate data fetch
      * @param {string} key - Path to statement
-     * @param {Object} args - Data to fill in blocks
-     * @returns {any}
+     * @param {Object} [args] - Data to fill in blocks
+     * @returns {string}
      */
     translate(key, args) {
       const language = this.client.translations.get(this.guild ? this.guild.data.language : 'en-US');
@@ -16,11 +16,11 @@ module.exports = Structures.extend('Message', (Message) => {
     }
 
     /**
-     * 
+     * Send or edit translated message
      * @param {string} key - Path to statement
-     * @param {Object} args - Data to fill in blocks
-     * @param {SendOptions} options - Send options
-     * @returns {string}
+     * @param {Object} [args] - Data to fill in blocks
+     * @param {SendOptions} [options] - Send options
+     * @returns {Message}
      */
     send(key, args, options = {}) {
       let string = this.translate(key, args);
