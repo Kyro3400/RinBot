@@ -1,0 +1,10 @@
+{
+  "NO_QUESTION": "Please ask a full question!",
+  "AUTHOR": "The 8 Ball says...",
+  "QUESTION": "Question",
+  "ANSWER": "Answer",
+  "REPLIES": [
+    "Never.", "Definitely.",
+    "Ask again later."
+  ]
+}
