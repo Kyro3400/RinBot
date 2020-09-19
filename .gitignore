@@ -4,7 +4,7 @@ node_modules
 package-lock.json
 
 # configs
-configs.js
+/configs.js
 
 # session client secrets, token, and more later...
 .env
