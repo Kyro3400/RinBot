@@ -1,0 +1,13 @@
+{
+  "HEIGHT": "Height",
+  "WEIGHT": "Weight",
+  "EGG_GROUPS": "Egg Groups",
+  "TYPE": "Type",
+  "STATS": "Stats",
+  "ABILITIES": "Abilities",
+  "SPECIES": "Species",
+  "ATTACK": "Attack",
+  "DEFENSE": "Defense",
+  "SPEED": "Speed",
+  "POKEMON_NOTFOUND": "Pokemon not found!"
+}
