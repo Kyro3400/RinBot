@@ -44,7 +44,10 @@ module.exports = class pokemon extends command {
         },
         {
           name: message.translate('fun/pokemon:STATS'),
-          value: `Total: ${pokemon.stats.total}\n HP: ${pokemon.stats.hp}\n Attack: ${pokemon.stats.attack}\n Defense: ${pokemon.stats.defense}\n Speed: ${pokemon.stats.speed}`,
+          value: `${message.translate('fun/pokemon:TOTAL')}: ${pokemon.stats.total}\n HP: ${pokemon.stats.hp}
+          ${message.translate('fun/pokemon:ATTACK')}: ${pokemon.stats.attack}
+          ${message.translate('fun/pokemon:DEFENSE')}: ${pokemon.stats.defense} 
+          ${message.translate('fun/pokemon:SPEED')}: ${pokemon.stats.speed}`,
           inline: true
         },
         {
