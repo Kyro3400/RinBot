@@ -15,7 +15,7 @@ module.exports = class pokemon extends command {
     const pokemonName = args[0];
     if (!pokemonName) return;
     const pokemon = await (await axios.default.get(`https://some-random-api.ml/pokedex?pokemon=${pokemonName}`)).data;
-    if (!pokemon) return await message.channel.send('Pokemon not found!');
+    if (!pokemon) return await message.send('fun/pokemon:POKEMON_NOTFOUND');
     
     const embed = new MessageEmbed()
       .setAuthor(pokemon.name.split(' ').map(str => `${str.slice(0, 1).toUpperCase() + str.slice(1)}`).join(' '))
@@ -23,37 +23,37 @@ module.exports = class pokemon extends command {
       .setThumbnail(pokemon.sprites.animated)
       .addFields(
         {
-          name: 'Height',
+          name: message.translate('fun/pokemon:HEIGHT'),
           value: pokemon.height,
           inline: true
         },
         {
-          name: 'Weight',
+          name: message.translate('fun/pokemon:WEIGHT'),
           value: pokemon.weight,
           inline: true
         },
         {
-          name: 'Egg Groups',
+          name: message.translate('fun/pokemon:EGG_GROUPS'),
           value: pokemon.egg_groups.map(g => g),
           inline: true
         },
         {
-          name: 'Type',
+          name: message.translate('fun/pokemon:TYPE'),
           value: pokemon.type.map(t => t),
           inline: true
         },
         {
-          name: 'Stats',
+          name: message.translate('fun/pokemon:STATS'),
           value: `Total: ${pokemon.stats.total}\n HP: ${pokemon.stats.hp}\n Attack: ${pokemon.stats.attack}\n Defense: ${pokemon.stats.defense}\n Speed: ${pokemon.stats.speed}`,
           inline: true
         },
         {
-          name: 'Abilities',
+          name: message.translate('fun/pokemon:ABILITIES'),
           value: pokemon.abilities.map(a => a),
           inline: true
         },
         {
-          name: 'Species',
+          name: message.translate('fun/pokemon:SPECIES'),
           value: pokemon.species.filter(p => p !== 'Pokémon').map(s => s),
           inline: true
         }
