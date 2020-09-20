@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server files for RinT discord bot",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.6"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.5.0"
+  },
+  "author": "Xa_puppet",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wilbert-mad/RinBot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Wilbert-mad/RinBot/issues"
+  },
+  "homepage": "https://github.com/Wilbert-mad/RinBot#readme"
+}
