@@ -1,6 +1,4 @@
 require('dotenv').config();
-require('./structures/guild.js');
-require('./structures/message.js');
 const Rin = require('./structures/Tohsaka.js');
 const { registerEvents } = require('./utils/register.js');
 const client = new Rin({ partials: ['MESSAGE', 'REACTION'] });
@@ -9,8 +7,6 @@ const client = new Rin({ partials: ['MESSAGE', 'REACTION'] });
 (async () => {
   await client.utils.loadCommands();
   await registerEvents(client, '../events');
-  // const languages = require('../../worker/languages.js')();
-  // client.translations = await languages;
   // eslint-disable-next-line no-undef
   client.login(process.env.BOT_TOKEN);
 })();
