@@ -59,7 +59,7 @@ module.exports = class MessageEvent extends BaseEvent {
 
     if (!cooldowns.has(cmd.name)) { cooldowns.set(cmd.name, new Collection()); }
 
-    if (cmd.guildOnly && !message.guild) return message.send('message:GUILDONLY');
+    if (cmd.guildOnly && !message.guild) return message.channel.send('Guild only command');
 
     if (message.guild) {
       const neededPermission = [];
@@ -70,9 +70,7 @@ module.exports = class MessageEvent extends BaseEvent {
         }
       });
       if (neededPermission.length > 0)
-        return message.send('message:CLIENT_PERMISSIONSMISSING', {
-          neededPermission: neededPermission.map((p) => p).join(', '),
-        });
+        return message.channel.send(`I am missing permissions ${neededPermission.map((p) => p).join(', ')}`);
       cmd.memberPermissions.forEach((perm) => {
         if (!message.channel.permissionsFor(message.member).has(perm) ||
           !message.member.hasPermission(perm)) {
@@ -80,7 +78,7 @@ module.exports = class MessageEvent extends BaseEvent {
         }
       });
       if (neededPermission.length > 0) 
-        return message.send('message:MEMBER_PERMISSIONSMISSING');
+        return message.channel.send('You dont have permissions for this command.');
     }
 
     const now = Date.now();
@@ -91,11 +89,10 @@ module.exports = class MessageEvent extends BaseEvent {
       if (now < expirationTime) {
         const timeLeft = (expirationTime - now);
         const coolDownsEmbed = new MessageEmbed()
-          .setAuthor(message.translate('message:COOLDOWNAUTHOR', { member: message.author.tag }), message.author.displayAvatarURL())
-          .addField(message.translate('message:COOLDOWNADDFIELD_ONE', { CmdName: cmd.name.toLowerCase() }),
-            message.translate('message:COOLDOWNADDFIELD_TWO', { Time: client.functions.deraton(timeLeft) }));
+          .setAuthor(`${message.author.tag} | Cooldown`, message.author.displayAvatarURL())
+          .addField(`Command | ${cmd.name.toLowerCase()}`, `Wait ${client.functions.deraton(timeLeft)} before reusing this command.`);
         if (message.channel.permissionsFor(message.guild.me).has('EMBED_LINKS')) return message.channel.send(coolDownsEmbed);
-        else return message.send('message:COOLDOWN_NOPREMS', { CmdName: cmd.name.toLowerCase(), Time: client.functions.deraton(timeLeft) });
+        else return message.channel.send(`Command: ${cmd.name.toLowerCase()} Time: ${client.functions.deraton(timeLeft)}.`);
       }
     }
 
