@@ -17,8 +17,6 @@ module.exports = class ReadyEvent extends BaseEvent {
       else i = 0;
     }, 30000);
     
-    // if (client.configs.dashboard.enabled) { await client.dashboard.load(client); }
-    
     // eslint-disable-next-line no-undef
     await mongoose.connect(process.env.MONG_URL, {
       useUnifiedTopology: true,

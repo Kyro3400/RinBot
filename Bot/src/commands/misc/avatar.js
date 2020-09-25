@@ -7,20 +7,19 @@ module.exports = class Avatar extends command {
       aliases: ['av'],
       usage: 'avatar <user>',
       category: 'misc',
-      description: 'Get a user picture',
+      description: 'Get a user profile picture',
       clientPermissions: ['EMBED_LINKS'],
       guildOnly: true,
     });
   }
 
-  async run(client, message, args) {
-    if (!args[0]) {
-      const { author } = message;
+  async run(client, message, [member]) {
+    if (!member) {
       const noArgse = new MessageEmbed()
-        .setAuthor(`${author.tag}`, author.displayAvatarURL())
+        .setAuthor(message.author.tag, message.author.displayAvatarURL())
         .setColor('RANDOM')
         .setTitle('**Avatar**')
-        .setImage(`${author.displayAvatarURL({ dynamic: true, size: 1024 })}`);
+        .setImage(message.author.displayAvatarURL({ dynamic: true, size: 1024 }));
       try {
         await message.channel.send(noArgse);
       } catch (e) {
@@ -28,8 +27,8 @@ module.exports = class Avatar extends command {
       }
       return;
     }
-    // eslint-disable-next-line no-empty-function
-    const userAvatar = message.mentions.users.first() || await client.users.fetch(args.join(' ')).catch(() => {});
+
+    const userAvatar = message.mentions.users.first() || await message.guild.members.cache.get(member).user;
     if (!userAvatar) {
       const notfound = new MessageEmbed()
         .setDescription('❌ Couldn\'t find that user.')
@@ -37,10 +36,10 @@ module.exports = class Avatar extends command {
       return (await message.channel.send(notfound));
     }
     const embed = new MessageEmbed()
-      .setAuthor(`${userAvatar.tag}`, userAvatar.displayAvatarURL(), userAvatar.displayAvatarURL())
+      .setAuthor(userAvatar.tag, userAvatar.displayAvatarURL(), userAvatar.displayAvatarURL())
       .setColor('RANDOM')
       .setTitle('**Avatar**')
-      .setImage(`${userAvatar.displayAvatarURL({ dynamic: true, size: 1024 })}`);
+      .setImage(userAvatar.displayAvatarURL({ dynamic: true, size: 1024 }));
     return (await message.channel.send(embed));
   }
 };
