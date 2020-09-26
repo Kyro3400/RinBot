@@ -1,6 +1,6 @@
 # RinBot
 
-![RinBot](https://cdn.discordapp.com/avatars/737527881017720944/3b036d095844b6f032b7988841ac3cc0.webp?size=1024)
+![RinBot](https://cdn.discordapp.com/avatars/737527881017720944/3b036d095844b6f032b7988841ac3cc0.webp)
 
 ## About
 
