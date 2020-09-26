@@ -14,5 +14,5 @@ To get ready to work on the codebase, please do the following:
 2. Run `npm install`
 4. Rename `.env.exampal` to `.env` and fill it in
 4. Code Away to your heart's content!
-5. Run `npm run lint` to run ESLint and ensure any JSDoc changes are valid
-6. Submit a pull request (Make sure you follow the conventional commit format)
+5. Run `npm run lint` to run ESLint.
+6. [Submit a pull request](https://github.com/Wilbert-mad/RinBot/compare)

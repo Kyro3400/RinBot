@@ -3,7 +3,7 @@ const command = require('../../structures/BaseCommand.js');
 
 module.exports = class UserInfo extends command {
   constructor() {
-    super('settings', {
+    super('userinfo', {
       category: 'misc',
       usage: 'Userinfo',
       description: 'get info on yourself',

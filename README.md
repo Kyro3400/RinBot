@@ -1,6 +1,6 @@
 # RinBot
 
-![RinBot](https://cdn.discordapp.com/avatars/737527881017720944/ac14376e9592e7c5625759f0a29edb09.webp?)
+![RinBot](https://cdn.discordapp.com/avatars/737527881017720944/3b036d095844b6f032b7988841ac3cc0.webp?size=1024)
 
 ## About
 
@@ -24,14 +24,10 @@ RinT is multipurpose discord bot.
 
 ## TODO
 
-* [X] client class
-  * [X] commands 
-  * [X] funtions
-* [X] move commands to class's
-  * [X] space out client and member permissions
-  * [X] better permissions checker for client and member
 * [ ] client dashboard backend
   * [ ] login | logout
+  * [ ] server api path's
+  * [ ] user api path's
 * [ ] client dashboard view
   * [ ] create a vue or react app.
     * [ ] home page {router='/'}
@@ -45,7 +41,7 @@ RinT is multipurpose discord bot.
 
 ## Contributing
 
-Please use ESLint for linting since this project uses this code style and it makes reviewing and testing faster and easier. 
+See the [contribution guide](https://github.com/Wilbert-mad/RinBot/blob/master/.github/CONTRIBUTING.md) if you'd like to submit a PullRequest.
 
 ---
 
