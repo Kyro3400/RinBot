@@ -27,11 +27,9 @@ RinT is multipurpose discord bot.
 * [X] client class
   * [X] commands 
   * [X] funtions
-  * [ ] languages
-    * [ ] add translation property's/method's to structures in base
 * [X] move commands to class's
-  * [ ] space out client and member permissions
-  * [ ] better permissions checker for client and member
+  * [X] space out client and member permissions
+  * [X] better permissions checker for client and member
 * [ ] client dashboard backend
   * [ ] login | logout
 * [ ] client dashboard view
