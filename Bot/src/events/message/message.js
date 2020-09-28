@@ -100,7 +100,14 @@ module.exports = class MessageEvent extends BaseEvent {
     setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
     try {
-      if (cmd) cmd.run(client, message, args);
+      if (cmd) cmd.run(client, message, args, data);
+      if (cmd.category === 'moderation' && data.autoDeleteModCommands) {
+        try {
+          message.delete();
+        } catch (error) {
+          return; 
+        }
+      }
     } catch (err) {
       client.logger.log(`${err.message || err}`, 'error');
     }
