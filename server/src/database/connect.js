@@ -2,10 +2,25 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 // eslint-disable-next-line no-undef
-module.exports = mongoose.connect(process.env.MONG_URL, {
+mongoose.connect(process.env.MONG_URL, {
   useUnifiedTopology: true,
-  useNewUrlParser: true
-}, (err) => {
-  if (err) throw err;
-  else console.log('Connected to DB');
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
 });
+
+const { connection } = mongoose;
+
+connection.on('connected', () => {
+  console.log('Database connected');
+});
+
+connection.on('disconnected', () => {
+  console.log('Database disconnected');
+});
+
+connection.on('error', err => {
+  console.error(err);
+});
+
+module.exports = connection;
