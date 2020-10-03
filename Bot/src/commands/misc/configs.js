@@ -25,7 +25,8 @@ module.exports = class Configs extends command {
         autoDeleteLinks,
         autoDeleteInvites,
         modules: {
-          modlogs
+          modlogs,
+          welcomeMessage
         },
       } = message.guild.data;
       
@@ -39,6 +40,7 @@ module.exports = class Configs extends command {
         .addField('Delete Links', autoDeleteLinks ? 'Yes' : 'No', true)
         .addField('Delete Invites', autoDeleteInvites ? 'Yes' : 'No', true)
         .addField('Mod logs', modlogs.enabled == true ? modlogs.channel : 'Non', true)
+        .addField('Welcome Message', welcomeMessage.enabled == true ? modlogs.welcomeMessage : 'Non', true)
         .setFooter(`Guild prefix: ${prefix}`, message.guild.iconURL({ dynamic: true }))
         .setTimestamp();
       await message.channel.send(seeEmbed);
@@ -62,7 +64,7 @@ module.exports = class Configs extends command {
       if (!choice) return;
       if (choice.toLowerCase() === 'on') {
         if (data.guild.modules.modlogs.enabled == true) 
-          return await message.channel.send('Module is already on');
+          return await message.channel.send('Module is already enabled');
         data.guild.modules.modlogs.enabled = true;
         await data.guild.markModified('modules.modlogs.enabled');
         await data.guild.save().then(async () => {
@@ -70,11 +72,43 @@ module.exports = class Configs extends command {
         });
       } else if (choice.toLowerCase() === 'off') {
         if (data.guild.modules.modlogs.enabled == false) 
-          return await message.channel.send('Module is already off');
+          return await message.channel.send('Module is already disable');
         data.guild.modules.modlogs.enabled = false;
         await data.guild.markModified('modules.modlogs.enabled');
         await data.guild.save().then(async () => {
           await message.channel.send('Modlogs have been disable');
+        });
+      } else return;
+      break;
+    }
+    case 'welcomeset': {
+      if (!args && args.length !== 3) return;
+      const messageArgs = args.join(' ');
+      data.guild.modules.welcomeMessage.message = messageArgs;
+      await data.guild.markModified('modules.welcomeMessage.message');
+      await data.guild.save().then(async () => {
+        await message.channel.send(`Welcome message have been set to: \n${messageArgs}`);
+      });
+      break;
+    }
+    case 'welcomemessage': {
+      const [choice] = args;
+      if (!choice) return;
+      if (choice.toLowerCase() === 'on') {
+        if (data.guild.modules.welcomeMessage.enabled == true) 
+          return await message.channel.send('Module is already enabled');
+        data.guild.modules.welcomeMessage.enabled = true;
+        await data.guild.markModified('modules.welcomeMessage.enabled');
+        await data.guild.save().then(async () => {
+          await message.channel.send('Welcome Message\'s have been enebled');
+        });
+      } else if (choice.toLowerCase() === 'off') {
+        if (data.guild.modules.welcomeMessage.enabled == false) 
+          return await message.channel.send('Module is already disable');
+        data.guild.modules.welcomeMessage.enabled = false;
+        await data.guild.markModified('modules.welcomeMessage.enabled');
+        await data.guild.save().then(async () => {
+          await message.channel.send('Welcome Message\'s have been disable');
         });
       } else return;
       break;
