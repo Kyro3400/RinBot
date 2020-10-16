@@ -8,7 +8,7 @@ module.exports = {
   githubURL: 'https://github.com/Wilbert-mad/RinBot', // project link DONT REMOVE!
   status: [
     {
-      name: '@RanT help : Servers #{{ServerCount}}',
+      name: '@RinT help : Servers #{{ServerCount}}',
       type: 'PLAYING'
     },
     {
